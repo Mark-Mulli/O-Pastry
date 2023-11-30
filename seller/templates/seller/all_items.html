@@ -1,4 +1,5 @@
 {% extends 'seller/base-seller.html' %}
+{% load humanize %}
 
 {% block title %}-Items{% endblock %}
 
@@ -29,12 +30,12 @@
     {% for item in items %}
     <div class="product-grid-container">
         <a href="{% url 'seller_item_detail' item.pk %}">
-            <div class="grid-item-image all-products-data-text"><img src="{{item.image.url}}" height="100px"></img>
+            <div class="grid-item-image all-products-data-text"><img src="{{item.image.url}}" height="100px" alt="pastry Image"></img>
         </a>
     </div>
     <div class="grid-item-title all-products-data-text">{{item.short_title}}</div>
     <div class="grid-item-category all-products-data-text">{{item.long_category}}</div>
-    <div class="grid-item-price all-products-data-text">{{item.price}}€</div>
+    <div class="grid-item-price all-products-data-text">KSHS {{item.price | floatformat:2 | intcomma}}</div>
     {% if item.quantity is 0 %}
     <div class="grid-item-inventory all-products-data-text warning-data-text">{{item.quantity}}</div>
     {% else %}

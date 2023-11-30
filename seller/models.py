@@ -27,7 +27,7 @@ class Item(models.Model):
 
     title = models.CharField(max_length=50)
     # "Price in €" displayed as a field name in form
-    price = models.FloatField("Price in €", default="0.00", validators=[
+    price = models.FloatField("Price in KSHS", default="0.00", validators=[
                               MinValueValidator(0.0)])
     description = models.TextField(max_length=100, null=True, blank=True)
     category = models.CharField(
