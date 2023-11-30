@@ -1,4 +1,5 @@
 {% extends 'seller/base-seller.html' %}
+{% load humanize %}
 {% load static %}
 
 {% block title %}-Overview{% endblock %}
@@ -17,12 +18,12 @@
             <div class="statistic-containter">
                 <div class="statistic-title">Total Inventory</div>
                 <div class="statistic-icon"><i class="bi bi-box2"></i></div>
-                <div class="statistic-data">{{inventory_value|floatformat:2}}€</div>
+                <div class="statistic-data">KSHS {{inventory_value|floatformat:2 | intcomma}}</div>
             </div>
             <div class="statistic-containter">
                 <div class="statistic-title">Total Sales</div>
                 <div class="statistic-icon"><i class="bi bi-cash-stack"></i></div>
-                <div class="statistic-data">{{total_sales}}€</div>
+                <div class="statistic-data">KSHS {{total_sales | floatformat:2 | intcomma }}</div>
             </div>
             <div class="statistic-containter">
                 <div class="statistic-title">Number of Visitors</div>
