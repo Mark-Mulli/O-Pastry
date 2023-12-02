@@ -1,4 +1,5 @@
 {% extends 'users/base-user.html' %}
+{% load humanize %}
 
 {% block title %}-My bag{% endblock %}
 
@@ -18,7 +19,7 @@
             <div class="bag-item-quantity all-products-data-text">
                 {{form}}
             </div>
-            <div class="bag-item-price all-products-data-text">{{item.item_to_buy.price}} €</div>
+            <div class="bag-item-price all-products-data-text">KSHS {{item.item_to_buy.price | intcomma}}</div>
             <button class="bag-item-bin navbar-icon" type="submit" name="action" value="delete_{{item.pk}}"><i
                     class="bi bi-trash3"></i></button>
         </div>

@@ -1,4 +1,5 @@
 {% extends 'seller/base-seller.html' %}
+{% load humanize %}
 
 {% block title %}-Order {{order.status}}{% endblock %}
 
@@ -56,14 +57,14 @@
         <div class="order-item-number">1</div>
         <div class="order-title">{{item.item_to_buy.title}}</div>
         <div class="order-quantity">{{item.quantity}}x</div>
-        <div class="order-price">{{item.item_to_buy.price}} €</div>
-        <div class="order-sum">{{price}}€</div>
+        <div class="order-price"> KSHS {{item.item_to_buy.price | intcomma}} </div>
+        <div class="order-sum"> KSHS {{price | intcomma }}</div>
     </a>
     {% endfor %}
 
     <div class="order-detail-grid-container total-bold-text">
         <div class="order-item-number">Total:</div>
-        <div class="order-sum">{{total_price_all_items}} €</div>
+        <div class="order-sum">KSHS {{total_price_all_items | intcomma}}</div>
     </div>
 
     <form method="post">

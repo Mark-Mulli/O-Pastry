@@ -1,4 +1,5 @@
 {% extends 'seller/pdf-style.html' %}
+{% load humanize %}
 
 {% block content %}
 
@@ -26,7 +27,7 @@
     <tr style="margin-left: 20rem;">
         <td></td>
         <td class="text-bold">Total Amount:
-            <p class="inline-text"> {{total_price_all_items}} €</p>
+            <p class="inline-text"> KSHS {{total_price_all_items | intcomma}}</p>
         </td>
     </tr>
 </table>
@@ -77,8 +78,8 @@
     <tr class="table-text">
         <td>{{item.item_to_buy.title}}</td>
         <td>{{item.quantity}}x</td>
-        <td>{{item.item_to_buy.price}} €</td>
-        <td>{{price}} €</td>
+        <td> KSHS {{item.item_to_buy.price  | intcomma}}</td>
+        <td>KSHS {{price | intcomma}}</td>
         {% endfor %}
     </tr>
 </table>
@@ -88,7 +89,7 @@
         <th>Total:</th>
         <th></th>
         <th></th>
-        <th>{{total_price_all_items}} €</th>
+        <th> KSHS {{total_price_all_items | intcomma}} </th>
     </tr>
 </table>
 
