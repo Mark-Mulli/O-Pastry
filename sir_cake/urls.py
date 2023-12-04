@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.conf import settings
 from django.conf.urls.static import static
+from django.contrib import admin
 from django.contrib.auth import views as auth_views
 from django.urls import path
 
@@ -63,6 +64,7 @@ urlpatterns = [
     path('successful-purchase/', store_views.successful_purchase,
          name="store_successful_purchase"),
     path('', store_views.landing_page, name="store_landing_page"),
+    path('admin/', admin.site.urls),
 ]
 
 if settings.DEBUG:
